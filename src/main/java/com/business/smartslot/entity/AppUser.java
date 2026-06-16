@@ -13,6 +13,10 @@ public class AppUser {
     @GeneratedValue(strategy = GenerationType.IDENTITY) // DB generates the ID
     /*@GeneratedValue(strategy = GenerationType.SEQUENCE) // Hibernate prefetches the ID first and then insert */
     private Long id;
+
+    @Enumerated(EnumType.STRING)
+    private Role role;
+
     @Column(unique = true, nullable = false)
     private String userName;
     private String password;
