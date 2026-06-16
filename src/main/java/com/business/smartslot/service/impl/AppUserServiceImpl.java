@@ -1,7 +1,7 @@
 package com.business.smartslot.service.impl;
 
 import com.business.smartslot.converter.AppUserConverter;
-import com.business.smartslot.dto.AppUserDTO;
+import com.business.smartslot.dto.AppUserDto;
 import com.business.smartslot.entity.AppUser;
 import com.business.smartslot.exception.BusinessException;
 import com.business.smartslot.exception.ErrorModel;
@@ -24,9 +24,9 @@ public class AppUserServiceImpl implements AppUserService {
     public AppUserConverter appUserConverter;
 
     @Override
-    public AppUserDTO registerAppUser(String username, AppUserDTO appUserDTO) throws BusinessException {
+    public AppUserDto registerAppUser(String username, AppUserDto appUserDTO) throws BusinessException {
 
-        AppUserDTO appUserDTO1 = null;
+        AppUserDto appUserDTO1 = null;
 
         Optional<AppUser> optAppUser = appUserRepository.findByUserName(username);
         if(!optAppUser.isPresent()) {
@@ -47,11 +47,11 @@ public class AppUserServiceImpl implements AppUserService {
     }
 
     @Override
-    public List<AppUserDTO> getAppUsers() {
+    public List<AppUserDto> getAppUsers() {
         List<AppUser> allResponses = (List<AppUser>) appUserRepository.findAll();
-        List<AppUserDTO> allResponsesDTO = new ArrayList<>();
+        List<AppUserDto> allResponsesDTO = new ArrayList<>();
         for(AppUser appUser : allResponses){
-            AppUserDTO appUserDTO = appUserConverter.convertEntitytoDTO(appUser);
+            AppUserDto appUserDTO = appUserConverter.convertEntitytoDTO(appUser);
             allResponsesDTO.add(appUserDTO);
         }
 
@@ -59,9 +59,9 @@ public class AppUserServiceImpl implements AppUserService {
     }
 
     @Override
-    public AppUserDTO updateAppUser(Long id, AppUserDTO appUserDTO) throws BusinessException {
+    public AppUserDto updateAppUser(Long id, AppUserDto appUserDTO) throws BusinessException {
         Optional<AppUser> ur = appUserRepository.findById(id);
-        AppUserDTO appUserDTO1 = null;
+        AppUserDto appUserDTO1 = null;
 
         if(ur.isPresent()){
             AppUser appUser = ur.get();
@@ -88,9 +88,9 @@ public class AppUserServiceImpl implements AppUserService {
     }
 
     @Override
-    public AppUserDTO updateUserName(String userName, AppUserDTO appUserDTO) throws BusinessException {
+    public AppUserDto updateUserName(String userName, AppUserDto appUserDTO) throws BusinessException {
 
-        AppUserDTO appUserDTO1 = null;
+        AppUserDto appUserDTO1 = null;
         Optional<AppUser> optAppUser = appUserRepository.findByUserName(userName);
 
         if(optAppUser.isPresent()) {

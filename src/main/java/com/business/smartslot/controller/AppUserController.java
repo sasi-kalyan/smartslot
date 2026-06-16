@@ -1,6 +1,6 @@
 package com.business.smartslot.controller;
 
-import com.business.smartslot.dto.AppUserDTO;
+import com.business.smartslot.dto.AppUserDto;
 import com.business.smartslot.exception.BusinessException;
 import com.business.smartslot.service.AppUserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,31 +27,31 @@ public class AppUserController {
     }
 
     @PostMapping("/register/{username}")
-    public ResponseEntity<AppUserDTO> registerAppUser(@PathVariable("username") String username, @RequestBody AppUserDTO appUserDTO) throws BusinessException {
-        AppUserDTO appUserDTO1 = appUserService.registerAppUser(username, appUserDTO);
-        ResponseEntity<AppUserDTO> responseEntity = new ResponseEntity<>(appUserDTO1, HttpStatus.CREATED);
+    public ResponseEntity<AppUserDto> registerAppUser(@PathVariable("username") String username, @RequestBody AppUserDto appUserDto) throws BusinessException {
+        AppUserDto appUserDto1 = appUserService.registerAppUser(username, appUserDto);
+        ResponseEntity<AppUserDto> responseEntity = new ResponseEntity<>(appUserDto1, HttpStatus.CREATED);
         return responseEntity;
     }
 
     @GetMapping("/fetch-all-users")
-    public ResponseEntity<List<AppUserDTO>> getAllUserResponses(){
+    public ResponseEntity<List<AppUserDto>> getAllUserResponses(){
         System.out.println(genericText);
-        List<AppUserDTO> allUsers = appUserService.getAppUsers();
-       ResponseEntity<List<AppUserDTO>> responseEntity = new ResponseEntity<>(allUsers, HttpStatus.OK);
+        List<AppUserDto> allUsers = appUserService.getAppUsers();
+       ResponseEntity<List<AppUserDto>> responseEntity = new ResponseEntity<>(allUsers, HttpStatus.OK);
        return responseEntity;
     }
 
     @PutMapping("/update-user/{id}")
-    public ResponseEntity<AppUserDTO> updateUserResponse(@PathVariable("id") Long id, @RequestBody AppUserDTO appUserDTO) throws BusinessException {
-        AppUserDTO appUserDTO1 = appUserService.updateAppUser(id, appUserDTO);
-        ResponseEntity<AppUserDTO> responseEntity = new ResponseEntity<>(appUserDTO1, HttpStatus.OK);
+    public ResponseEntity<AppUserDto> updateUserResponse(@PathVariable("id") Long id, @RequestBody AppUserDto appUserDto) throws BusinessException {
+        AppUserDto appUserDto1 = appUserService.updateAppUser(id, appUserDto);
+        ResponseEntity<AppUserDto> responseEntity = new ResponseEntity<>(appUserDto1, HttpStatus.OK);
         return responseEntity;
     }
 
     @PatchMapping("/update-username/{username}")
-    public ResponseEntity<AppUserDTO> updateUserName(@PathVariable("username") String userName, @RequestBody AppUserDTO appUserDTO) throws BusinessException {
-        AppUserDTO appUserDTO1 = appUserService.updateUserName(userName, appUserDTO);
-        ResponseEntity<AppUserDTO> responseEntity = new ResponseEntity<>(appUserDTO1, HttpStatus.OK);
+    public ResponseEntity<AppUserDto> updateUserName(@PathVariable("username") String userName, @RequestBody AppUserDto appUserDto) throws BusinessException {
+        AppUserDto appUserDto1 = appUserService.updateUserName(userName, appUserDto);
+        ResponseEntity<AppUserDto> responseEntity = new ResponseEntity<>(appUserDto1, HttpStatus.OK);
         return responseEntity;
     }
 }

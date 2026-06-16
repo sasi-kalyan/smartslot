@@ -1,17 +1,17 @@
 package com.business.smartslot.service;
 
-import com.business.smartslot.dto.AppUserDTO;
+import com.business.smartslot.dto.AppUserDto;
 import com.business.smartslot.exception.BusinessException;
 
 import java.util.List;
 
 public interface AppUserService {
 
-    AppUserDTO registerAppUser(String username, AppUserDTO userResponseDto) throws BusinessException;
+    AppUserDto registerAppUser(String username, AppUserDto userResponseDto) throws BusinessException;
 
-    List<AppUserDTO> getAppUsers();
+    List<AppUserDto> getAppUsers();
 
-    AppUserDTO updateAppUser(Long id, AppUserDTO appUserDTO) throws BusinessException;
+    AppUserDto updateAppUser(Long id, AppUserDto appUserDTO) throws BusinessException;
 
-    AppUserDTO updateUserName(String userName, AppUserDTO appUserDTO) throws BusinessException;
+    AppUserDto updateUserName(String userName, AppUserDto appUserDTO) throws BusinessException;
 }

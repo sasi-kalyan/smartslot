@@ -8,7 +8,7 @@ import lombok.Data;
 @Data
 @JsonInclude
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class AppUserDTO {
+public class AppUserDto {
     private Long id;
     private Role role;
     private String userName;

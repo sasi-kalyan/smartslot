@@ -1,6 +1,6 @@
 package com.business.smartslot.converter;
 
-import com.business.smartslot.dto.AppUserDTO;
+import com.business.smartslot.dto.AppUserDto;
 import com.business.smartslot.entity.AppUser;
 import org.springframework.stereotype.Component;
 
@@ -10,7 +10,7 @@ import java.time.format.DateTimeFormatter;
 @Component
 public class AppUserConverter {
 
-    public AppUser convertDTOtoEntity(AppUserDTO appUserDto){
+    public AppUser convertDTOtoEntity(AppUserDto appUserDto){
 
         AppUser appUser = new AppUser();
         appUser.setRole(appUserDto.getRole());
@@ -25,9 +25,9 @@ public class AppUserConverter {
         return appUser;
     }
 
-    public AppUserDTO convertEntitytoDTO(AppUser appUser){
+    public AppUserDto convertEntitytoDTO(AppUser appUser){
 
-        AppUserDTO appUserDto = new AppUserDTO();
+        AppUserDto appUserDto = new AppUserDto();
         appUserDto.setId(appUser.getId());
         appUserDto.setRole(appUser.getRole());
         appUserDto.setUserName(appUser.getUserName());
