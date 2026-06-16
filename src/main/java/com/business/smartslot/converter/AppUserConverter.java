@@ -13,6 +13,7 @@ public class AppUserConverter {
     public AppUser convertDTOtoEntity(AppUserDTO appUserDto){
 
         AppUser appUser = new AppUser();
+        appUser.setRole(appUserDto.getRole());
         appUser.setUserName(appUserDto.getUserName());
         appUser.setEmail(appUserDto.getEmail());
         appUser.setFullName(appUserDto.getFullName());
@@ -28,6 +29,7 @@ public class AppUserConverter {
 
         AppUserDTO appUserDto = new AppUserDTO();
         appUserDto.setId(appUser.getId());
+        appUserDto.setRole(appUser.getRole());
         appUserDto.setUserName(appUser.getUserName());
         appUserDto.setEmail(appUser.getEmail());
         appUserDto.setFullName(appUser.getFullName());
