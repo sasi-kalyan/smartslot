@@ -3,7 +3,6 @@ package com.business.smartslot.exception;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Setter
